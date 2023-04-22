@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animal Predictor </title>
+    </head>
+
+    <body>
+        <h1 class="text-centre">Image based - Animal Predictor</h1>
+        <form method="post"  action= '/predict' enctype="multipart/form-data">
+        {% if result %}
+        {% for animal in result %}
+        <h2>{{animal}}</h2>
+            {% endfor %}
+        {% endif %}
+        <label for="image-file">Select an image file:</label>
+        <input type="file" id="image-file" name="image-file" accept="image/*">
+
+        <label for="image-url">Or enter an image URL:</label>
+        <input type="text" id="image-url" name="image-url" value="{% if image_url %} {{image_url}} {% endif %}">
+
+        <button type="submit" class="submit-button">Submit</button>
+
+</form>  
+    </body>
+</html>
